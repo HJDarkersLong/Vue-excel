@@ -3,7 +3,9 @@
 基于vue创建的一个生成excel的方法
 
 
- handleDownload () {
+ 点击下载触发handleDownload 这个方法   ../exportForm/Export2Excel 则对应的是上传的Export2Excel 文件
+      
+       handleDownload () {
         if (this.param.beginTime == null && this.param.endTime == null ) {
           alert('请选择时间段后导出！')
           return
@@ -29,9 +31,6 @@
           })
         })
       }
-      
-      
-      
       
       methods 里面有这个方法，是点击下载执行的方法，该方法首先是访问内部接口，查询出需要展示的数据，用数组exportList进行接收（如果不需要数据例如，需求只需要下载Excel模板，不需要数据，则不用进行接口访问，但是）exportList需要定义，设置为空数组即可
       然后执行 require.ensure 方法，设置表头，列名，文件名等相关设置formatJson方法如下：（注意的是filterVal和filterValSecond相等的时候会直接填入excel，如果查询出来的是对象需要展示的是内部属性，则需要向如下方法一样输出即可）
